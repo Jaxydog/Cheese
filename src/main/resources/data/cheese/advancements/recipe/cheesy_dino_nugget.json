@@ -1,0 +1,20 @@
+{
+	"criteria": {
+		"has_item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": ["cheese:dino_nugget"]
+					},
+					{
+						"items": ["cheese:cheese"]
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["cheese:cheesy_dino_nugget"]
+	}
+}

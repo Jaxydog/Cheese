@@ -40,7 +40,7 @@ public class CItems {
 	public static final CItem CHEESE_STEAK = new CItem(
 		"cheese_steak",
 		new Settings()
-			.food(new FoodComponent.Builder().hunger(15).saturationModifier(0.75f).build())
+			.food(new FoodComponent.Builder().hunger(15).meat().saturationModifier(0.75f).build())
 			.rarity(Rarity.UNCOMMON),
 		new Config().withTooltip()
 	);
@@ -54,11 +54,29 @@ public class CItems {
 		new Config().withTooltip()
 	);
 
+	/** Cheesy dino nugget item */
+	public static final CItem CHEESY_DINO_NUGGET = new CItem(
+		"cheesy_dino_nugget",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(4).meat().saturationModifier(0.75f).build())
+			.rarity(Rarity.UNCOMMON),
+		new Config().withTooltip()
+	);
+
 	/** Crackers item */
 	public static final CItem CRACKERS = new CItem(
 		"crackers",
 		new Settings()
 			.food(new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build())
+			.rarity(Rarity.COMMON),
+		new Config().withTooltip()
+	);
+
+	/** Dino nugget item */
+	public static final CItem DINO_NUGGET = new CItem(
+		"dino_nugget",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(3).meat().saturationModifier(0.65f).build())
 			.rarity(Rarity.COMMON),
 		new Config().withTooltip()
 	);
@@ -97,7 +115,9 @@ public class CItems {
 		CItems.CHEESE_BLOCK.register();
 		CItems.CHEESE_STEAK.register();
 		CItems.CHEESY_BAKED_POTATO.register();
+		CItems.CHEESY_DINO_NUGGET.register();
 		CItems.CRACKERS.register();
+		CItems.DINO_NUGGET.register();
 		CItems.GRILLED_CHEESE.register();
 		CItems.MACARONI.register();
 		CItems.MACARONI_AND_CHEESE.register();
