@@ -1,0 +1,8 @@
+{
+	"block.cheese.cheese_block": "Cheese Block",
+	"block.cheese.cheese_block.tooltip_0": "What's wrong with Wensleydale...?",
+	"item.cheese.cheese.tooltip_0": "No crackers, Gromit!",
+	"item.cheese.cheese.tooltip_1": "We've forgotten the crackers!!!",
+	"item.cheese.cheese": "Cheese",
+	"itemGroup.cheese.default": "Cheese"
+}
