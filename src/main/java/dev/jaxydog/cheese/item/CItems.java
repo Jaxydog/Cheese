@@ -36,6 +36,15 @@ public class CItems {
 		new Config().withTooltip()
 	);
 
+	/** Cheese steak item */
+	public static final CItem CHEESE_STEAK = new CItem(
+		"cheese_steak",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(15).saturationModifier(0.75f).build())
+			.rarity(Rarity.UNCOMMON),
+		new Config().withTooltip()
+	);
+
 	/** Cheesy baked potato item */
 	public static final CItem CHEESY_BAKED_POTATO = new CItem(
 		"cheesy_baked_potato",
@@ -77,6 +86,7 @@ public class CItems {
 		CItems.CHEESE.register();
 		CItems.CHEESE_AND_CRACKERS.register();
 		CItems.CHEESE_BLOCK.register();
+		CItems.CHEESE_STEAK.register();
 		CItems.CHEESY_BAKED_POTATO.register();
 		CItems.CRACKERS.register();
 		CItems.MACARONI.register();

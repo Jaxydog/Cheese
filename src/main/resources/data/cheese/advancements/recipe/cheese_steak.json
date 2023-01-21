@@ -1,0 +1,23 @@
+{
+	"criteria": {
+		"has_item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": ["minecraft:bread"]
+					},
+					{
+						"items": ["minecraft:cooked_beef"]
+					},
+					{
+						"items": ["cheese:cheese"]
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["cheese:cheese_steak"]
+	}
+}
