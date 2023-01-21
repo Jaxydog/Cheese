@@ -63,6 +63,15 @@ public class CItems {
 		new Config().withTooltip()
 	);
 
+	/** Grilled cheese item */
+	public static final CItem GRILLED_CHEESE = new CItem(
+		"grilled_cheese",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(8).saturationModifier(0.625f).build())
+			.rarity(Rarity.UNCOMMON),
+		new Config().withTooltip()
+	);
+
 	/** Macaroni item */
 	public static final CItem MACARONI = new CItem(
 		"macaroni",
@@ -89,6 +98,7 @@ public class CItems {
 		CItems.CHEESE_STEAK.register();
 		CItems.CHEESY_BAKED_POTATO.register();
 		CItems.CRACKERS.register();
+		CItems.GRILLED_CHEESE.register();
 		CItems.MACARONI.register();
 		CItems.MACARONI_AND_CHEESE.register();
 	}
