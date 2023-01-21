@@ -19,11 +19,29 @@ public class CItems {
 		new Config().withTooltip()
 	);
 
+	/** Cheese and crackers item */
+	public static final CItem CHEESE_AND_CRACKERS = new CItem(
+		"cheese_and_crackers",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(2).saturationModifier(1.25f).snack().build())
+			.rarity(Rarity.UNCOMMON),
+		new Config().withTooltip()
+	);
+
 	/** Cheese block item */
 	public static final CBlockItem CHEESE_BLOCK = new CBlockItem(
 		"cheese_block",
 		CBlocks.CHEESE_BLOCK,
 		new Settings().rarity(Rarity.UNCOMMON),
+		new Config().withTooltip()
+	);
+
+	/** Crackers item */
+	public static final CItem CRACKERS = new CItem(
+		"crackers",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build())
+			.rarity(Rarity.COMMON),
 		new Config().withTooltip()
 	);
 
@@ -48,7 +66,9 @@ public class CItems {
 	/** Registers all of the mod's items at once */
 	public static void register() {
 		CItems.CHEESE.register();
+		CItems.CHEESE_AND_CRACKERS.register();
 		CItems.CHEESE_BLOCK.register();
+		CItems.CRACKERS.register();
 		CItems.MACARONI.register();
 		CItems.MACARONI_AND_CHEESE.register();
 	}
