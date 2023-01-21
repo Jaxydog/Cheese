@@ -1,0 +1,20 @@
+{
+	"criteria": {
+		"has_item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": ["minecraft:baked_potato"]
+					},
+					{
+						"items": ["cheese:cheese"]
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["cheese:cheesy_baked_potato"]
+	}
+}

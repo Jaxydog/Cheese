@@ -1,4 +1,10 @@
 {
 	"replace": false,
-	"values": ["cheese:cheese", "cheese:cheese_and_crackers", "cheese:cheese_block", "cheese:macaroni_and_cheese"]
+	"values": [
+		"cheese:cheese",
+		"cheese:cheese_and_crackers",
+		"cheese:cheese_block",
+		"cheese:cheesy_baked_potato",
+		"cheese:macaroni_and_cheese"
+	]
 }
