@@ -4,5 +4,9 @@
 	"item.cheese.cheese.tooltip_0": "No crackers, Gromit!",
 	"item.cheese.cheese.tooltip_1": "We've forgotten the crackers!!!",
 	"item.cheese.cheese": "Cheese",
+	"item.cheese.macaroni_and_cheese.tooltip_0": "The food of the Gods.",
+	"item.cheese.macaroni_and_cheese": "Macaroni and Cheese",
+	"item.cheese.macaroni.tooltip_0": "Made with sink water <3",
+	"item.cheese.macaroni": "Macaroni",
 	"itemGroup.cheese.default": "Cheese"
 }

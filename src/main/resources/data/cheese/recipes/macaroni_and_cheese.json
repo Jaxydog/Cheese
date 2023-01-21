@@ -1,0 +1,27 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:bowl"
+		},
+		{
+			"item": "cheese:macaroni"
+		},
+		{
+			"item": "cheese:macaroni"
+		},
+		{
+			"item": "cheese:macaroni"
+		},
+		{
+			"item": "cheese:cheese"
+		},
+		{
+			"item": "cheese:cheese"
+		}
+	],
+	"result": {
+		"item": "cheese:macaroni_and_cheese",
+		"count": 1
+	}
+}

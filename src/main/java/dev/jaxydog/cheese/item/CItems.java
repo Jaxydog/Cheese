@@ -4,6 +4,7 @@ import dev.jaxydog.cheese.block.CBlocks;
 import dev.jaxydog.cheese.item.CItem.Config;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item.Settings;
+import net.minecraft.item.Items;
 import net.minecraft.util.Rarity;
 
 /** Contains all of the mod's item definitions */
@@ -26,9 +27,29 @@ public class CItems {
 		new Config().withTooltip()
 	);
 
+	/** Macaroni item */
+	public static final CItem MACARONI = new CItem(
+		"macaroni",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(1).saturationModifier(0.5f).snack().build())
+			.rarity(Rarity.COMMON),
+		new Config().withTooltip()
+	);
+
+	/** Macaroni and cheese item */
+	public static final CItem MACARONI_AND_CHEESE = new CItem(
+		"macaroni_and_cheese",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(6).saturationModifier(1.25f).build())
+			.rarity(Rarity.UNCOMMON),
+		new Config().withConsumeRemainder(() -> Items.BOWL.getDefaultStack()).withTooltip()
+	);
+
 	/** Registers all of the mod's items at once */
 	public static void register() {
 		CItems.CHEESE.register();
 		CItems.CHEESE_BLOCK.register();
+		CItems.MACARONI.register();
+		CItems.MACARONI_AND_CHEESE.register();
 	}
 }
