@@ -36,6 +36,13 @@ public class CItems {
 		new Config().withTooltip()
 	);
 
+	/** Cheese cloth item */
+	public static final CItem CHEESE_CLOTH = new CItem(
+		"cheese_cloth",
+		new Settings().rarity(Rarity.UNCOMMON),
+		new Config().withTooltip()
+	);
+
 	/** Cheese steak item */
 	public static final CItem CHEESE_STEAK = new CItem(
 		"cheese_steak",
@@ -113,6 +120,7 @@ public class CItems {
 		CItems.CHEESE.register();
 		CItems.CHEESE_AND_CRACKERS.register();
 		CItems.CHEESE_BLOCK.register();
+		CItems.CHEESE_CLOTH.register();
 		CItems.CHEESE_STEAK.register();
 		CItems.CHEESY_BAKED_POTATO.register();
 		CItems.CHEESY_DINO_NUGGET.register();
