@@ -18,6 +18,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -85,6 +86,17 @@ public class CItem extends Item implements Registerable {
 	}
 
 	@Override
+	public UseAction getUseAction(ItemStack stack) {
+		Config config;
+
+		if ((config = this._CONFIG) != null && stack.getItem().isFood()) {
+			return config.isDrink() ? UseAction.DRINK : UseAction.EAT;
+		} else {
+			return super.getUseAction(stack);
+		}
+	}
+
+	@Override
 	public void register() {
 		Registry.register(Registries.ITEM, this.getId(), this);
 		ItemGroupEvents.modifyEntriesEvent(CItem.ITEM_GROUP).register(content -> content.add(this));
@@ -98,6 +110,8 @@ public class CItem extends Item implements Registerable {
 
 		/** Whether item tooltips are enabled */
 		private boolean enableTooltip = false;
+		/** Whether the item is a drink; only applies to foods */
+		private boolean drink = false;
 
 		/** An item stack given to the player when the item is consumed */
 		@Nullable
@@ -106,6 +120,12 @@ public class CItem extends Item implements Registerable {
 		/** Enables item tooltips */
 		public Config withTooltip() {
 			this.enableTooltip = true;
+			return this;
+		}
+
+		/** Marks the item as a drink */
+		public Config drink() {
+			this.drink = true;
 			return this;
 		}
 
@@ -118,6 +138,11 @@ public class CItem extends Item implements Registerable {
 		/** Whether item tooltips are enabled; defaults to `false` */
 		public boolean isTooltipEnabled() {
 			return this.enableTooltip;
+		}
+
+		/** Whether the item is a drink; defaults to `false` */
+		public boolean isDrink() {
+			return this.drink;
 		}
 
 		/** Returns an item stack given to the player when the item is consumed */

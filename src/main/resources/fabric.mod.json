@@ -13,7 +13,8 @@
 	"icon": "assets/cheese/icon.png",
 	"environment": "*",
 	"entrypoints": {
-		"main": ["dev.jaxydog.cheese.Cheese"]
+		"main": ["dev.jaxydog.cheese.Cheese"],
+		"client": ["dev.jaxydog.cheese.CheeseClient"]
 	},
 	"mixins": ["cheese.mixins.json"],
 

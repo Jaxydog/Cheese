@@ -43,6 +43,15 @@ public class CItems {
 		new Config().withTooltip()
 	);
 
+	/** Cheese cloth item */
+	public static final CItem CHEESE_PIZZA = new CItem(
+		"cheese_pizza",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(8).saturationModifier(0.75f).build())
+			.rarity(Rarity.UNCOMMON),
+		new Config().withTooltip()
+	);
+
 	/** Cheese steak item */
 	public static final CItem CHEESE_STEAK = new CItem(
 		"cheese_steak",
@@ -88,6 +97,13 @@ public class CItems {
 		new Config().withTooltip()
 	);
 
+	/** Dough item */
+	public static final CItem DOUGH = new CItem(
+		"dough",
+		new Settings().rarity(Rarity.COMMON),
+		new Config().withTooltip()
+	);
+
 	/** Grilled cheese item */
 	public static final CItem GRILLED_CHEESE = new CItem(
 		"grilled_cheese",
@@ -115,19 +131,41 @@ public class CItems {
 		new Config().withConsumeRemainder(() -> Items.BOWL.getDefaultStack()).withTooltip()
 	);
 
+	/** Tomato item */
+	public static final CAliasedBlockItem TOMATO = new CAliasedBlockItem(
+		"tomato",
+		CBlocks.TOMATOES,
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(1).saturationModifier(1.25f).build())
+			.rarity(Rarity.COMMON)
+	);
+
+	/** Tomato sauce item */
+	public static final CItem TOMATO_SAUCE = new CItem(
+		"tomato_sauce",
+		new Settings()
+			.food(new FoodComponent.Builder().hunger(2).saturationModifier(1.125f).build())
+			.rarity(Rarity.COMMON),
+		new Config().drink().withConsumeRemainder(() -> Items.GLASS_BOTTLE.getDefaultStack())
+	);
+
 	/** Registers all of the mod's items at once */
 	public static void register() {
 		CItems.CHEESE.register();
 		CItems.CHEESE_AND_CRACKERS.register();
 		CItems.CHEESE_BLOCK.register();
 		CItems.CHEESE_CLOTH.register();
+		CItems.CHEESE_PIZZA.register();
 		CItems.CHEESE_STEAK.register();
 		CItems.CHEESY_BAKED_POTATO.register();
 		CItems.CHEESY_DINO_NUGGET.register();
 		CItems.CRACKERS.register();
 		CItems.DINO_NUGGET.register();
+		CItems.DOUGH.register();
 		CItems.GRILLED_CHEESE.register();
 		CItems.MACARONI.register();
 		CItems.MACARONI_AND_CHEESE.register();
+		CItems.TOMATO.register();
+		CItems.TOMATO_SAUCE.register();
 	}
 }

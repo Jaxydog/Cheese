@@ -1,0 +1,6 @@
+{
+	"parent": "minecraft:block/crop",
+	"textures": {
+		"crop": "cheese:block/tomatoes_stage3"
+	}
+}
