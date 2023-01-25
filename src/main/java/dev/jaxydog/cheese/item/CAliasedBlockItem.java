@@ -65,5 +65,11 @@ public class CAliasedBlockItem extends AliasedBlockItem implements Registerable 
 	public void register() {
 		Registry.register(Registries.ITEM, this.getId(), this);
 		ItemGroupEvents.modifyEntriesEvent(CItem.ITEM_GROUP).register(content -> content.add(this));
+
+		Config config;
+
+		if ((config = this._CONFIG) != null) {
+			config.getLootModifiers().forEach(modifier -> modifier.register(this));
+		}
 	}
 }

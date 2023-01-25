@@ -1,7 +1,9 @@
 package dev.jaxydog.cheese.item;
 
 import dev.jaxydog.cheese.Cheese;
+import dev.jaxydog.cheese.util.LootModifier;
 import dev.jaxydog.cheese.util.Registerable;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Supplier;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -71,7 +73,7 @@ public class CItem extends Item implements Registerable {
 		Config config;
 		Supplier<ItemStack> remainder;
 
-		if ((config = this._CONFIG) != null && (remainder = config.getConsumeRemainder()) != null) {
+		if ((config = this._CONFIG) != null && (remainder = config.get__consumeRemainder()) != null) {
 			if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode) {
 				((PlayerEntity) user).getInventory().insertStack(remainder.get());
 			}
@@ -90,7 +92,7 @@ public class CItem extends Item implements Registerable {
 		Config config;
 
 		if ((config = this._CONFIG) != null && stack.getItem().isFood()) {
-			return config.isDrink() ? UseAction.DRINK : UseAction.EAT;
+			return config.is__drink() ? UseAction.DRINK : UseAction.EAT;
 		} else {
 			return super.getUseAction(stack);
 		}
@@ -100,6 +102,12 @@ public class CItem extends Item implements Registerable {
 	public void register() {
 		Registry.register(Registries.ITEM, this.getId(), this);
 		ItemGroupEvents.modifyEntriesEvent(CItem.ITEM_GROUP).register(content -> content.add(this));
+
+		Config config;
+
+		if ((config = this._CONFIG) != null) {
+			config.getLootModifiers().forEach(modifier -> modifier.register(this));
+		}
 	}
 
 	/**
@@ -109,45 +117,58 @@ public class CItem extends Item implements Registerable {
 	public static class Config {
 
 		/** Whether item tooltips are enabled */
-		private boolean enableTooltip = false;
+		private boolean __enableTooltip = false;
 		/** Whether the item is a drink; only applies to foods */
-		private boolean drink = false;
+		private boolean __drink = false;
+		/** A list of loot modifiers to be registered with the item */
+		private List<LootModifier> __lootModifiers = new LinkedList<>();
 
 		/** An item stack given to the player when the item is consumed */
 		@Nullable
-		private Supplier<ItemStack> consumeRemainder = null;
+		private Supplier<ItemStack> __consumeRemainder = null;
 
 		/** Enables item tooltips */
 		public Config withTooltip() {
-			this.enableTooltip = true;
+			this.__enableTooltip = true;
 			return this;
 		}
 
 		/** Marks the item as a drink */
 		public Config drink() {
-			this.drink = true;
+			this.__drink = true;
+			return this;
+		}
+
+		/** Adds the given loot modifiers to the item */
+		public Config modifyLoot(LootModifier... modifiers) {
+			this.__lootModifiers.addAll(List.of(modifiers));
+
 			return this;
 		}
 
 		/** Sets the stack given to the player when the item is consumed */
 		public Config withConsumeRemainder(Supplier<ItemStack> consumeRemainder) {
-			this.consumeRemainder = consumeRemainder;
+			this.__consumeRemainder = consumeRemainder;
 			return this;
 		}
 
 		/** Whether item tooltips are enabled; defaults to `false` */
 		public boolean isTooltipEnabled() {
-			return this.enableTooltip;
+			return this.__enableTooltip;
 		}
 
 		/** Whether the item is a drink; defaults to `false` */
-		public boolean isDrink() {
-			return this.drink;
+		public boolean is__drink() {
+			return this.__drink;
+		}
+
+		public List<LootModifier> getLootModifiers() {
+			return this.__lootModifiers;
 		}
 
 		/** Returns an item stack given to the player when the item is consumed */
-		public @Nullable Supplier<ItemStack> getConsumeRemainder() {
-			return this.consumeRemainder;
+		public @Nullable Supplier<ItemStack> get__consumeRemainder() {
+			return this.__consumeRemainder;
 		}
 	}
 }

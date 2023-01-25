@@ -2,9 +2,14 @@ package dev.jaxydog.cheese.item;
 
 import dev.jaxydog.cheese.block.CBlocks;
 import dev.jaxydog.cheese.item.CItem.Config;
+import dev.jaxydog.cheese.util.LootModifier;
+import net.minecraft.entity.EntityType;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item.Settings;
 import net.minecraft.item.Items;
+import net.minecraft.loot.LootTables;
+import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
+import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.util.Rarity;
 
 /** Contains all of the mod's item definitions */
@@ -47,7 +52,7 @@ public class CItems {
 	public static final CItem CHEESE_PIZZA = new CItem(
 		"cheese_pizza",
 		new Settings()
-			.food(new FoodComponent.Builder().hunger(8).saturationModifier(0.75f).build())
+			.food(new FoodComponent.Builder().hunger(8).saturationModifier(0.825f).build())
 			.rarity(Rarity.UNCOMMON),
 		new Config().withTooltip()
 	);
@@ -136,15 +141,21 @@ public class CItems {
 		"tomato",
 		CBlocks.TOMATOES,
 		new Settings()
-			.food(new FoodComponent.Builder().hunger(1).saturationModifier(1.25f).build())
-			.rarity(Rarity.COMMON)
+			.food(new FoodComponent.Builder().hunger(2).saturationModifier(1.25f).build())
+			.rarity(Rarity.COMMON),
+		new Config()
+			.modifyLoot(
+				new LootModifier(EntityType.ZOMBIE.getLootTableId(), BinomialLootNumberProvider.create(1, 0.01f)),
+				new LootModifier(LootTables.VILLAGE_PLAINS_CHEST, UniformLootNumberProvider.create(0, 16.0f)),
+				new LootModifier(LootTables.VILLAGE_SAVANNA_HOUSE_CHEST, UniformLootNumberProvider.create(0, 16.0f))
+			)
 	);
 
 	/** Tomato sauce item */
 	public static final CItem TOMATO_SAUCE = new CItem(
 		"tomato_sauce",
 		new Settings()
-			.food(new FoodComponent.Builder().hunger(2).saturationModifier(1.125f).build())
+			.food(new FoodComponent.Builder().hunger(4).saturationModifier(1.125f).build())
 			.rarity(Rarity.COMMON),
 		new Config().drink().withConsumeRemainder(() -> Items.GLASS_BOTTLE.getDefaultStack())
 	);
