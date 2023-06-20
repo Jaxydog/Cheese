@@ -1,0 +1,17 @@
+{
+	"criteria": {
+		"has_item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": ["minecraft:milk_bucket"]
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["cheese:cheese", "cheese:cheese_from_block"]
+	}
+}

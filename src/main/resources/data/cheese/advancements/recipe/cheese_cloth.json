@@ -1,0 +1,17 @@
+{
+	"criteria": {
+		"has_item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "minecraft:wool"
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["cheese:cheese_cloth"]
+	}
+}

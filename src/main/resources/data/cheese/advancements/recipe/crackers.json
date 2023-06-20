@@ -1,0 +1,17 @@
+{
+	"criteria": {
+		"has_item": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"items": ["minecraft:wheat"]
+					}
+				]
+			}
+		}
+	},
+	"rewards": {
+		"recipes": ["cheese:crackers"]
+	}
+}

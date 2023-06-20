@@ -1,0 +1,12 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"tag": "minecraft:wool"
+		}
+	],
+	"result": {
+		"item": "cheese:cheese_cloth",
+		"count": 3
+	}
+}
