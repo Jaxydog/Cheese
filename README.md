@@ -19,7 +19,10 @@ If you like cheese, cheese-adjacent foods, or Wallace and Gromit references, thi
 
 ### Planned foods
 
--   None yet!
+-   Cheese curds
+-   Poutine
+-   French fries
+-   Cheeseburger
 
 ### Contributions
 
