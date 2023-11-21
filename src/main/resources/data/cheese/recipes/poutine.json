@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "cheese:beef_gravy"
+        },
+        {
+            "item": "cheese:fries"
+        },
+        {
+            "item": "cheese:fries"
+        },
+        {
+            "item": "cheese:cheese_curds"
+        },
+        {
+            "item": "minecraft:bowl"
+        }
+    ],
+    "result": {
+        "item": "cheese:poutine",
+        "count": 1
+    }
+}

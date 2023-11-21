@@ -1,0 +1,23 @@
+{
+    "criteria": {
+        "has_item": {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "items": [ "cheese:beef_gravy" ]
+                    },
+                    {
+                        "items": [ "cheese:cheese_curds" ]
+                    },
+                    {
+                        "items": [ "cheese:fries" ]
+                    }
+                ]
+            }
+        }
+    },
+    "rewards": {
+        "recipes": [ "cheese:poutine" ]
+    }
+}
