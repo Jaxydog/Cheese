@@ -16,12 +16,17 @@ If you like cheese, cheese-adjacent foods, or Wallace and Gromit references, thi
 -   Cheesy Baked Potato
 -   Cheese Steak
 -   Grilled Cheese
+-   Tomatoes
+-   Tomato sauce
+-   Cheese Pizza
+-   Beef Gravy
+-   Cheese Curds
+-   Fries
+-   Cheese Fries
+-   Poutine
 
 ### Planned foods
 
--   Cheese curds
--   Poutine
--   French fries
 -   Cheeseburger
 
 ### Contributions
