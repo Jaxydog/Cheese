@@ -14,24 +14,24 @@ import org.slf4j.LoggerFactory;
 
 public class Cheese implements ModInitializer {
 
-	public static final String MOD_ID = "cheese";
-	public static final Logger LOGGER = LoggerFactory.getLogger(Cheese.MOD_ID);
-	public static final ItemGroup ITEM_GROUP = FabricItemGroup
-		.builder()
-		.icon(() -> CustomItems.CHEESE.getDefaultStack())
-		.displayName(Text.translatable(Cheese.newId("default").toTranslationKey("itemGroup")))
-		.build();
+    public static final String MOD_ID = "cheese";
+    public static final Logger LOGGER = LoggerFactory.getLogger(Cheese.MOD_ID);
+    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder()
+        .icon(CustomItems.CHEESE::getDefaultStack)
+        .displayName(Text.translatable(Cheese.newId("default").toTranslationKey("itemGroup")))
+        .build();
 
-	@Override
-	public void onInitialize() {
-		Registry.register(Registries.ITEM_GROUP, Cheese.newId("default"), Cheese.ITEM_GROUP);
+    @Override
+    public void onInitialize() {
+        Registry.register(Registries.ITEM_GROUP, Cheese.newId("default"), Cheese.ITEM_GROUP);
 
-		AutoRegisterImpl.runMain();
+        AutoRegisterImpl.runMain();
 
-		Cheese.LOGGER.info("Cheese has loaded :)");
-	}
+        Cheese.LOGGER.info("Cheese has loaded :)");
+    }
 
-	public static final Identifier newId(String path) {
-		return Identifier.of(Cheese.MOD_ID, path);
-	}
+    public static Identifier newId(String path) {
+        return Identifier.of(Cheese.MOD_ID, path);
+    }
+
 }

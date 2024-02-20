@@ -5,8 +5,9 @@ import net.fabricmc.api.ClientModInitializer;
 
 public class CheeseClient implements ClientModInitializer {
 
-	@Override
-	public void onInitializeClient() {
-		AutoRegisterImpl.runClient();
-	}
+    @Override
+    public void onInitializeClient() {
+        AutoRegisterImpl.runClient();
+    }
+
 }

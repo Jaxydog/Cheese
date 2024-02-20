@@ -1,15 +1,24 @@
 package dev.jaxydog.utility.register;
 
 public interface Registerable extends Identifiable {
-	public static interface Client extends Registerable {
-		public default void registerClient() {}
-	}
 
-	public static interface Main extends Registerable {
-		public default void registerMain() {}
-	}
+    interface Client extends Registerable {
 
-	public static interface Server extends Registerable {
-		public default void registerServer() {}
-	}
+        default void registerClient() {}
+
+    }
+
+    interface Main extends Registerable {
+
+        default void registerMain() {}
+
+    }
+
+    interface Server extends Registerable {
+
+        @SuppressWarnings("unused")
+        default void registerServer() {}
+
+    }
+
 }

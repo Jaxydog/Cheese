@@ -9,16 +9,17 @@ import net.minecraft.world.World;
 
 public class BowlItem extends CustomItem {
 
-	public BowlItem(String rawId, Settings settings, LootModifier... lootModifiers) {
-		super(rawId, settings, lootModifiers);
-	}
+    public BowlItem(String rawId, Settings settings, LootModifier... lootModifiers) {
+        super(rawId, settings, lootModifiers);
+    }
 
-	@Override
-	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-		if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode) {
-			((PlayerEntity) user).getInventory().insertStack(Items.BOWL.getDefaultStack());
-		}
+    @Override
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        if (user instanceof final PlayerEntity player && !player.isCreative()) {
+            player.giveItemStack(Items.BOWL.getDefaultStack());
+        }
 
-		return super.finishUsing(stack, world, user);
-	}
+        return super.finishUsing(stack, world, user);
+    }
+
 }

@@ -8,9 +8,11 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface AutoRegister {
-	public boolean client() default true;
 
-	public boolean main() default true;
+    boolean client() default true;
 
-	public boolean server() default true;
+    boolean main() default true;
+
+    boolean server() default true;
+
 }

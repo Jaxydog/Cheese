@@ -10,21 +10,22 @@ import net.minecraft.world.World;
 
 public class BottleItem extends CustomItem {
 
-	public BottleItem(String rawId, Settings settings, LootModifier... lootModifiers) {
-		super(rawId, settings, lootModifiers);
-	}
+    public BottleItem(String rawId, Settings settings, LootModifier... lootModifiers) {
+        super(rawId, settings, lootModifiers);
+    }
 
-	@Override
-	public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-		if (user instanceof PlayerEntity && !((PlayerEntity) user).getAbilities().creativeMode) {
-			((PlayerEntity) user).getInventory().insertStack(Items.GLASS_BOTTLE.getDefaultStack());
-		}
+    @Override
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        if (user instanceof final PlayerEntity player && !player.isCreative()) {
+            player.giveItemStack(Items.GLASS_BOTTLE.getDefaultStack());
+        }
 
-		return super.finishUsing(stack, world, user);
-	}
+        return super.finishUsing(stack, world, user);
+    }
 
-	@Override
-	public UseAction getUseAction(ItemStack stack) {
-		return UseAction.DRINK;
-	}
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.DRINK;
+    }
+
 }
