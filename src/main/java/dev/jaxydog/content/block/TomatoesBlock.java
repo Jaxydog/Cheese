@@ -90,4 +90,6 @@ public class TomatoesBlock extends CropBlock implements Registerable.Client, Reg
         BlockRenderLayerMap.INSTANCE.putBlock(this, RenderLayer.getCutout());
     }
 
+    // spiders 🕷️ 🕸️
+
 }

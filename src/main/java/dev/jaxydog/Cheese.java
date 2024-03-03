@@ -27,7 +27,7 @@ public class Cheese implements ModInitializer {
 
         AutoRegisterImpl.runMain();
 
-        Cheese.LOGGER.info("Cheese has loaded :)");
+        Cheese.LOGGER.info("Cheese has loaded! Thanks for playing :3");
     }
 
     public static Identifier newId(String path) {
