@@ -35,7 +35,7 @@ public class LootModifier implements Registerable.Main {
         Main.super.registerMain();
 
         LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
-            if (key.equals(this.TABLE_ID) || !source.isBuiltin()) return;
+            if (!key.equals(this.TABLE_ID) || !source.isBuiltin()) return;
 
             for (final LootNumberProvider provider : this.PROVIDERS) {
                 final Builder<? extends Builder<?>> entry = ItemEntry.builder(this.ITEM.get());

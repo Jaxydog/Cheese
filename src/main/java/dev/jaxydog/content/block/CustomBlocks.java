@@ -14,7 +14,7 @@ public class CustomBlocks {
         Settings.copy(Blocks.SPONGE).mapColor(MapColor.PALE_YELLOW).hardness(1.0f).sounds(BlockSoundGroup.SLIME)
     );
 
-    public static final TomatoesBlock TOMATOES = new TomatoesBlock(Settings.copy(Blocks.BEETROOTS)
+    public static final TomatoesBlock TOMATOES = new TomatoesBlock(Settings.copy(Blocks.POTATOES)
         .breakInstantly()
         .noCollision()
         .sounds(BlockSoundGroup.CROP)
