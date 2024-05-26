@@ -15,7 +15,7 @@
         }
     ],
     "result": {
-        "item": "cheese:beef_gravy",
+        "id": "cheese:beef_gravy",
         "count": 2
     }
 }

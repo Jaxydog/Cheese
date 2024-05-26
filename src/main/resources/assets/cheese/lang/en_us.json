@@ -41,5 +41,7 @@
     "item.cheese.poutine": "Poutine",
     "item.cheese.tomato_sauce": "Tomato Sauce",
     "item.cheese.tomato": "Tomato",
-    "itemGroup.cheese.default": "Cheese"
+    "itemGroup.cheese.default": "Cheese",
+    "tag.block.cheese.cheese": "Cheese",
+    "tag.item.cheese.cheese": "Cheese"
 }

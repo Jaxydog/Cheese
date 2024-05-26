@@ -6,7 +6,7 @@
         }
     ],
     "result": {
-        "item": "cheese:fries",
+        "id": "cheese:fries",
         "count": 4
     }
 }

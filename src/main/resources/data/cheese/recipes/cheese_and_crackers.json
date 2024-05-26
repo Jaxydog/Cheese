@@ -1,18 +1,18 @@
 {
-	"type": "minecraft:crafting_shapeless",
-	"ingredients": [
-		{
-			"item": "cheese:crackers"
-		},
-		{
-			"item": "cheese:cheese"
-		},
-		{
-			"item": "cheese:cheese"
-		}
-	],
-	"result": {
-		"item": "cheese:cheese_and_crackers",
-		"count": 3
-	}
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "cheese:crackers"
+        },
+        {
+            "item": "cheese:cheese"
+        },
+        {
+            "item": "cheese:cheese"
+        }
+    ],
+    "result": {
+        "id": "cheese:cheese_and_crackers",
+        "count": 3
+    }
 }

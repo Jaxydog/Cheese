@@ -4,7 +4,7 @@ import dev.jaxydog.Cheese;
 import dev.jaxydog.utility.LootModifier;
 import dev.jaxydog.utility.register.Registerable;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.item.TooltipType;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,7 +12,6 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import net.minecraft.world.World;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class CustomItem extends Item implements Registerable.Main {
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         var key = stack.getItem().getTranslationKey(stack) + ".tooltip_";
         var index = 0;
 
@@ -38,7 +37,7 @@ public class CustomItem extends Item implements Registerable.Main {
             index += 1;
         }
 
-        super.appendTooltip(stack, world, tooltip, context);
+        super.appendTooltip(stack, context, tooltip, type);
     }
 
     @Override

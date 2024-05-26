@@ -18,7 +18,7 @@
         }
     ],
     "result": {
-        "item": "cheese:poutine",
+        "id": "cheese:poutine",
         "count": 1
     }
 }

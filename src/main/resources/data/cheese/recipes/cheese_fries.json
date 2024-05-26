@@ -9,7 +9,7 @@
         }
     ],
     "result": {
-        "item": "cheese:cheese_fries",
+        "id": "cheese:cheese_fries",
         "count": 1
     }
 }

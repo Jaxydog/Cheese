@@ -9,7 +9,7 @@
         }
     ],
     "result": {
-        "item": "cheese:cheese_curds",
+        "id": "cheese:cheese_curds",
         "count": 2
     }
 }
