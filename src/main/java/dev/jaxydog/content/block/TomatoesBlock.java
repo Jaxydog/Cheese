@@ -1,7 +1,9 @@
 package dev.jaxydog.content.block;
 
+import dev.jaxydog.Cheese;
 import dev.jaxydog.content.item.CustomItems;
-import dev.jaxydog.utility.register.Registerable;
+import dev.jaxydog.lodestone.api.ClientLoaded;
+import dev.jaxydog.lodestone.api.CommonLoaded;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -15,13 +17,14 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager.Builder;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class TomatoesBlock extends CropBlock implements Registerable.Client, Registerable.Main {
+public class TomatoesBlock extends CropBlock implements ClientLoaded, CommonLoaded {
 
     public static final int TOMATOES_MAX_AGE = 3;
     public static final IntProperty AGE = Properties.AGE_3;
@@ -52,8 +55,8 @@ public class TomatoesBlock extends CropBlock implements Registerable.Client, Reg
     }
 
     @Override
-    public String getRawId() {
-        return "tomatoes";
+    public Identifier getLoaderId() {
+        return Cheese.newId("tomatoes");
     }
 
     @Override
@@ -79,14 +82,12 @@ public class TomatoesBlock extends CropBlock implements Registerable.Client, Reg
     }
 
     @Override
-    public void registerMain() {
-        Main.super.registerMain();
-        Registry.register(Registries.BLOCK, this.getId(), this);
+    public void loadCommon() {
+        Registry.register(Registries.BLOCK, this.getLoaderId(), this);
     }
 
     @Override
-    public void registerClient() {
-        Client.super.registerClient();
+    public void loadClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(this, RenderLayer.getCutout());
     }
 

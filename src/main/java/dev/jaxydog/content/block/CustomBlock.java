@@ -1,28 +1,29 @@
 package dev.jaxydog.content.block;
 
-import dev.jaxydog.utility.register.Registerable;
+import dev.jaxydog.Cheese;
+import dev.jaxydog.lodestone.api.CommonLoaded;
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
 
-public class CustomBlock extends Block implements Registerable.Main {
+public class CustomBlock extends Block implements CommonLoaded {
 
-    private final String RAW_ID;
+    private final String path;
 
-    public CustomBlock(String rawId, Settings settings) {
+    public CustomBlock(String path, Settings settings) {
         super(settings);
-        this.RAW_ID = rawId;
+        this.path = path;
     }
 
     @Override
-    public String getRawId() {
-        return this.RAW_ID;
+    public Identifier getLoaderId() {
+        return Cheese.newId(this.path);
     }
 
     @Override
-    public void registerMain() {
-        Main.super.registerMain();
-        Registry.register(Registries.BLOCK, this.getId(), this);
+    public void loadCommon() {
+        Registry.register(Registries.BLOCK, this.getLoaderId(), this);
     }
 
 }

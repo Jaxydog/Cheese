@@ -9,8 +9,8 @@ import net.minecraft.world.World;
 
 public class BowlItem extends CustomItem {
 
-    public BowlItem(String rawId, Settings settings, LootModifier... lootModifiers) {
-        super(rawId, settings, lootModifiers);
+    public BowlItem(String path, Settings settings, LootModifier... lootModifiers) {
+        super(path, settings, lootModifiers);
     }
 
     @Override

@@ -1,19 +1,20 @@
 package dev.jaxydog.content.item;
 
+import dev.jaxydog.Cheese;
 import dev.jaxydog.content.block.CustomBlocks;
+import dev.jaxydog.lodestone.api.AutoLoader;
 import dev.jaxydog.utility.LootModifier;
-import dev.jaxydog.utility.register.AutoRegister;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item.Settings;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 @SuppressWarnings("unused")
-@AutoRegister
-public class CustomItems {
+public final class CustomItems extends AutoLoader {
 
     public static final BottleItem BEEF_GRAVY = new BottleItem("beef_gravy",
         new Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.7f).build())
@@ -128,5 +129,10 @@ public class CustomItems {
         new Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(1.125f).build())
             .rarity(Rarity.COMMON)
     );
+
+    @Override
+    public Identifier getLoaderId() {
+        return Cheese.newId("items");
+    }
 
 }

@@ -10,8 +10,8 @@ import net.minecraft.world.World;
 
 public class BottleItem extends CustomItem {
 
-    public BottleItem(String rawId, Settings settings, LootModifier... lootModifiers) {
-        super(rawId, settings, lootModifiers);
+    public BottleItem(String path, Settings settings, LootModifier... lootModifiers) {
+        super(path, settings, lootModifiers);
     }
 
     @Override

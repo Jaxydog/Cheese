@@ -1,7 +1,9 @@
 package dev.jaxydog;
 
+import dev.jaxydog.content.block.CustomBlocks;
 import dev.jaxydog.content.item.CustomItems;
-import dev.jaxydog.utility.register.AutoRegisterImpl;
+import dev.jaxydog.lodestone.Lodestone;
+import dev.jaxydog.lodestone.api.CommonLoaded;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.ItemGroup;
@@ -15,23 +17,29 @@ import org.slf4j.LoggerFactory;
 public class Cheese implements ModInitializer {
 
     public static final String MOD_ID = "cheese";
-    public static final Logger LOGGER = LoggerFactory.getLogger(Cheese.MOD_ID);
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    public static final CustomBlocks BLOCKS = new CustomBlocks();
+    public static final CustomItems ITEMS = new CustomItems();
     public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder()
         .icon(CustomItems.CHEESE::getDefaultStack)
-        .displayName(Text.translatable(Cheese.newId("default").toTranslationKey("itemGroup")))
+        .displayName(Text.translatable(newId("default").toTranslationKey("itemGroup")))
         .build();
+
+    public static Identifier newId(String path) {
+        return Identifier.of(MOD_ID, path);
+    }
 
     @Override
     public void onInitialize() {
-        Registry.register(Registries.ITEM_GROUP, Cheese.newId("default"), Cheese.ITEM_GROUP);
+        Registry.register(Registries.ITEM_GROUP, newId("default"), ITEM_GROUP);
 
-        AutoRegisterImpl.runMain();
+        BLOCKS.register(CommonLoaded.class);
+        ITEMS.register(CommonLoaded.class);
+
+        Lodestone.load(CommonLoaded.class, MOD_ID);
 
         Cheese.LOGGER.info("Cheese has loaded! Thanks for playing :3");
-    }
-
-    public static Identifier newId(String path) {
-        return Identifier.of(Cheese.MOD_ID, path);
     }
 
 }

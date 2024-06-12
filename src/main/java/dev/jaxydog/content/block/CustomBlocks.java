@@ -1,13 +1,14 @@
 package dev.jaxydog.content.block;
 
-import dev.jaxydog.utility.register.AutoRegister;
+import dev.jaxydog.Cheese;
+import dev.jaxydog.lodestone.api.AutoLoader;
 import net.minecraft.block.AbstractBlock.Settings;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
 
-@AutoRegister
-public class CustomBlocks {
+public final class CustomBlocks extends AutoLoader {
 
     public static final CustomBlock CHEESE_BLOCK = new CustomBlock(
         "cheese_block",
@@ -19,5 +20,10 @@ public class CustomBlocks {
         .noCollision()
         .sounds(BlockSoundGroup.CROP)
         .ticksRandomly());
+
+    @Override
+    public Identifier getLoaderId() {
+        return Cheese.newId("blocks");
+    }
 
 }

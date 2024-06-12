@@ -1,8 +1,8 @@
 package dev.jaxydog.content.item;
 
 import dev.jaxydog.Cheese;
+import dev.jaxydog.lodestone.api.CommonLoaded;
 import dev.jaxydog.utility.LootModifier;
-import dev.jaxydog.utility.register.Registerable;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.client.item.TooltipType;
@@ -13,19 +13,20 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Identifier;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class CustomBlockItem extends BlockItem implements Registerable.Main {
+public class CustomBlockItem extends BlockItem implements CommonLoaded {
 
-    private final String RAW_ID;
-    private final List<LootModifier> LOOT_MODIFIERS = new LinkedList<>();
+    private final String path;
+    private final List<LootModifier> lootModifiers = new LinkedList<>();
 
-    public CustomBlockItem(String rawId, Block block, Settings settings, LootModifier... lootModifiers) {
+    public CustomBlockItem(String path, Block block, Settings settings, LootModifier... lootModifiers) {
         super(block, settings);
-        this.RAW_ID = rawId;
-        this.LOOT_MODIFIERS.addAll(List.of(lootModifiers));
+        this.path = path;
+        this.lootModifiers.addAll(List.of(lootModifiers));
     }
 
     @Override
@@ -42,19 +43,18 @@ public class CustomBlockItem extends BlockItem implements Registerable.Main {
     }
 
     @Override
-    public String getRawId() {
-        return this.RAW_ID;
+    public Identifier getLoaderId() {
+        return Cheese.newId(this.path);
     }
 
     @SuppressWarnings("OptionalGetWithoutIsPresent")
     @Override
-    public void registerMain() {
-        Main.super.registerMain();
-        Registry.register(Registries.ITEM, this.getId(), this);
+    public void loadCommon() {
+        Registry.register(Registries.ITEM, this.getLoaderId(), this);
         ItemGroupEvents.modifyEntriesEvent(Registries.ITEM_GROUP.getKey(Cheese.ITEM_GROUP).get())
             .register(e -> e.add(this));
 
-        this.LOOT_MODIFIERS.forEach(LootModifier::registerMain);
+        this.lootModifiers.forEach(LootModifier::loadCommon);
     }
 
 }
