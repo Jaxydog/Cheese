@@ -19,9 +19,9 @@
     "mixins": [ "cheese.mixins.json" ],
     "depends": {
         "fabricloader": ">=0.15.11",
-        "minecraft": "~1.20.6",
+        "minecraft": "~1.21",
         "java": ">=21",
         "fabric-api": "*",
-        "lodestone": ">=1.3.0"
+        "lodestone": ">=1.4.0"
     }
 }
