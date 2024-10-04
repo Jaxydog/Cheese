@@ -1,7 +1,7 @@
 {
-	"variants": {
-		"": {
-			"model": "cheese:block/cheese_block"
-		}
-	}
+    "variants": {
+        "": {
+            "model": "cheese:block/cheese_block"
+        }
+    }
 }
