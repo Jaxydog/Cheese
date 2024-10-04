@@ -18,10 +18,10 @@
     },
     "mixins": [ "cheese.mixins.json" ],
     "depends": {
-        "fabricloader": ">=0.15.11",
-        "minecraft": "~1.21",
+        "fabricloader": ">=0.16.5",
+        "minecraft": "~1.21.1",
         "java": ">=21",
         "fabric-api": "*",
-        "lodestone": ">=1.4.0"
+        "lodestone": ">=1.5.1"
     }
 }
