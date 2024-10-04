@@ -16,7 +16,7 @@ package dev.jaxydog.utility;
 
 import dev.jaxydog.Cheese;
 import dev.jaxydog.lodestone.api.CommonLoaded;
-import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.item.Item;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.entry.ItemEntry;
@@ -48,7 +48,7 @@ public class LootModifier implements CommonLoaded {
 
     @Override
     public void loadCommon() {
-        LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
+        LootTableEvents.MODIFY.register((key, tableBuilder, source, lookup) -> {
             if (!key.equals(this.tableId) || !source.isBuiltin()) return;
 
             for (final LootNumberProvider provider : this.providers) {
