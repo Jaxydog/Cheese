@@ -1,15 +1,9 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "minecraft:wheat"
-        },
-        {
-            "item": "minecraft:wheat"
-        },
-        {
-            "item": "minecraft:egg"
-        }
+        "minecraft:wheat",
+        "minecraft:wheat",
+        "minecraft:egg"
     ],
     "result": {
         "id": "cheese:macaroni",

@@ -1,12 +1,8 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "cheese:cheese"
-        },
-        {
-            "item": "cheese:dino_nugget"
-        }
+        "cheese:cheese",
+        "cheese:dino_nugget"
     ],
     "result": {
         "id": "cheese:cheesy_dino_nugget",

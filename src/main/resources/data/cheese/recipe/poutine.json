@@ -1,21 +1,11 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "cheese:beef_gravy"
-        },
-        {
-            "item": "cheese:fries"
-        },
-        {
-            "item": "cheese:fries"
-        },
-        {
-            "item": "cheese:cheese_curds"
-        },
-        {
-            "item": "minecraft:bowl"
-        }
+        "cheese:beef_gravy",
+        "cheese:fries",
+        "cheese:fries",
+        "cheese:cheese_curds",
+        "minecraft:bowl"
     ],
     "result": {
         "id": "cheese:poutine",

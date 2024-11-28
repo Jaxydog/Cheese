@@ -1,12 +1,8 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "cheese:fries"
-        },
-        {
-            "item": "cheese:cheese"
-        }
+        "cheese:fries",
+        "cheese:cheese"
     ],
     "result": {
         "id": "cheese:cheese_fries",

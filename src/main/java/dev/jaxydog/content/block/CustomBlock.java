@@ -19,6 +19,8 @@ import dev.jaxydog.lodestone.api.CommonLoaded;
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
 public class CustomBlock extends Block implements CommonLoaded {
@@ -26,7 +28,7 @@ public class CustomBlock extends Block implements CommonLoaded {
     private final String path;
 
     public CustomBlock(String path, Settings settings) {
-        super(settings);
+        super(settings.registryKey(RegistryKey.of(RegistryKeys.BLOCK, Cheese.newId(path))));
         this.path = path;
     }
 

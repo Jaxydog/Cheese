@@ -27,6 +27,8 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.state.StateManager.Builder;
 import net.minecraft.state.property.IntProperty;
@@ -50,7 +52,7 @@ public class TomatoesBlock extends CropBlock implements ClientLoaded, CommonLoad
     };
 
     public TomatoesBlock(Settings settings) {
-        super(settings);
+        super(settings.registryKey(RegistryKey.of(RegistryKeys.BLOCK, Cheese.newId("tomatoes"))));
     }
 
     @Override

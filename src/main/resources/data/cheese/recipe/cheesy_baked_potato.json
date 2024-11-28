@@ -1,15 +1,9 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "minecraft:baked_potato"
-        },
-        {
-            "item": "cheese:cheese"
-        },
-        {
-            "item": "cheese:cheese"
-        }
+        "minecraft:baked_potato",
+        "cheese:cheese",
+        "cheese:cheese"
     ],
     "result": {
         "id": "cheese:cheesy_baked_potato",

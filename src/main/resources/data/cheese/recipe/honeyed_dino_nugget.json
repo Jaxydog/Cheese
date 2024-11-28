@@ -1,15 +1,9 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "minecraft:honey_bottle"
-        },
-        {
-            "item": "cheese:dino_nugget"
-        },
-        {
-            "item": "cheese:dino_nugget"
-        }
+        "minecraft:honey_bottle",
+        "cheese:dino_nugget",
+        "cheese:dino_nugget"
     ],
     "result": {
         "id": "cheese:honeyed_dino_nugget",

@@ -1,12 +1,8 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "minecraft:milk_bucket"
-        },
-        {
-            "item": "cheese:cheese_cloth"
-        }
+        "minecraft:milk_bucket",
+        "cheese:cheese_cloth"
     ],
     "result": {
         "id": "cheese:cheese",

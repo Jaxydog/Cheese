@@ -1,12 +1,8 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "cheese:cheese"
-        },
-        {
-            "item": "cheese:cheese"
-        }
+        "cheese:cheese",
+        "cheese:cheese"
     ],
     "result": {
         "id": "cheese:cheese_curds",

@@ -18,12 +18,16 @@ import dev.jaxydog.Cheese;
 import dev.jaxydog.content.block.CustomBlocks;
 import dev.jaxydog.lodestone.api.AutoLoader;
 import dev.jaxydog.utility.LootModifier;
+import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.FoodComponent;
+import net.minecraft.component.type.FoodComponent.Builder;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item.Settings;
+import net.minecraft.item.consume.UseAction;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
@@ -31,18 +35,25 @@ import net.minecraft.util.Rarity;
 public final class CustomItems extends AutoLoader {
 
     public static final BottleItem BEEF_GRAVY = new BottleItem("beef_gravy",
-        new Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.7f).build())
-            .rarity(Rarity.COMMON)
+        new Settings().food(new Builder().nutrition(1).saturationModifier(0.7f).build(),
+            ConsumableComponent.builder()
+                .useAction(UseAction.DRINK)
+                .sound(SoundEvents.ENTITY_GENERIC_DRINK)
+                .consumeParticles(false)
+                .build()
+        ).rarity(Rarity.COMMON)
     );
 
     public static final CustomItem CHEESE = new CustomItem("cheese",
-        new Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(1.125f).snack().build())
-            .rarity(Rarity.UNCOMMON)
+        new Settings().food(new Builder().nutrition(1).saturationModifier(1.125f).build(),
+            ConsumableComponent.builder().consumeSeconds(0.8f).build()
+        ).rarity(Rarity.UNCOMMON)
     );
 
     public static final CustomItem CHEESE_AND_CRACKERS = new CustomItem("cheese_and_crackers",
-        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.25f).snack().build())
-            .rarity(Rarity.UNCOMMON)
+        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.25f).build(),
+            ConsumableComponent.builder().consumeSeconds(0.8f).build()
+        ).rarity(Rarity.UNCOMMON)
     );
 
     public static final CustomBlockItem CHEESE_BLOCK = new CustomBlockItem("cheese_block",
@@ -55,8 +66,9 @@ public final class CustomItems extends AutoLoader {
     );
 
     public static final CustomItem CHEESE_CURDS = new CustomItem("cheese_curds",
-        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.9f).snack().build())
-            .rarity(Rarity.UNCOMMON)
+        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.9f).build(),
+            ConsumableComponent.builder().consumeSeconds(0.8f).build()
+        ).rarity(Rarity.UNCOMMON)
     );
 
     public static final CustomItem CHEESE_FRIES = new CustomItem("cheese_fries",
@@ -97,8 +109,9 @@ public final class CustomItems extends AutoLoader {
     public static final CustomItem DOUGH = new CustomItem("dough", new Settings().rarity(Rarity.COMMON));
 
     public static final CustomItem FRIES = new CustomItem("fries",
-        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.65f).snack().build())
-            .rarity(Rarity.COMMON)
+        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.65f).build(),
+            ConsumableComponent.builder().consumeSeconds(0.8f).build()
+        ).rarity(Rarity.COMMON)
     );
 
     public static final CustomItem GRILLED_CHEESE = new CustomItem("grilled_cheese",
@@ -112,8 +125,9 @@ public final class CustomItems extends AutoLoader {
     );
 
     public static final CustomItem MACARONI = new CustomItem("macaroni",
-        new Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.5f).snack().build())
-            .rarity(Rarity.COMMON)
+        new Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.5f).build(),
+            ConsumableComponent.builder().consumeSeconds(0.8f).build()
+        ).rarity(Rarity.COMMON)
     );
 
     public static final BowlItem MACARONI_AND_CHEESE = new BowlItem("macaroni_and_cheese",
@@ -126,11 +140,11 @@ public final class CustomItems extends AutoLoader {
             .rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomAliasedBlockItem TOMATO = new CustomAliasedBlockItem("tomato",
+    public static final CustomBlockItem TOMATO = new CustomBlockItem("tomato",
         CustomBlocks.TOMATOES,
         new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.25f).build())
             .rarity(Rarity.COMMON),
-        new LootModifier(EntityType.ZOMBIE.getLootTableId(),
+        new LootModifier(EntityType.ZOMBIE.getLootTableKey().orElseThrow(),
             () -> CustomItems.TOMATO,
             BinomialLootNumberProvider.create(1, 0.01f)
         ),
@@ -145,8 +159,13 @@ public final class CustomItems extends AutoLoader {
     );
 
     public static final BottleItem TOMATO_SAUCE = new BottleItem("tomato_sauce",
-        new Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(1.125f).build())
-            .rarity(Rarity.COMMON)
+        new Settings().food(new Builder().nutrition(4).saturationModifier(1.125f).build(),
+            ConsumableComponent.builder()
+                .useAction(UseAction.DRINK)
+                .sound(SoundEvents.ENTITY_GENERIC_DRINK)
+                .consumeParticles(false)
+                .build()
+        ).rarity(Rarity.COMMON)
     );
 
     @Override

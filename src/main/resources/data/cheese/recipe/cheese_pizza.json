@@ -1,18 +1,10 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "cheese:dough"
-        },
-        {
-            "item": "cheese:tomato_sauce"
-        },
-        {
-            "item": "cheese:cheese"
-        },
-        {
-            "item": "cheese:cheese"
-        }
+        "cheese:dough",
+        "cheese:tomato_sauce",
+        "cheese:cheese",
+        "cheese:cheese"
     ],
     "result": {
         "id": "cheese:cheese_pizza",

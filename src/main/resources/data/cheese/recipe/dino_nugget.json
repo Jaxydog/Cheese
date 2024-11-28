@@ -1,12 +1,8 @@
 {
     "type": "minecraft:crafting_shapeless",
     "ingredients": [
-        {
-            "item": "minecraft:cooked_chicken"
-        },
-        {
-            "item": "minecraft:wheat"
-        }
+        "minecraft:cooked_chicken",
+        "minecraft:wheat"
     ],
     "result": {
         "id": "cheese:dino_nugget",

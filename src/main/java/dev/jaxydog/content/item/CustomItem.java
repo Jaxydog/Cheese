@@ -24,6 +24,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
@@ -37,14 +39,14 @@ public class CustomItem extends Item implements CommonLoaded {
     private final List<LootModifier> lootModifiers = new LinkedList<>();
 
     public CustomItem(String path, Settings settings, LootModifier... lootModifiers) {
-        super(settings);
+        super(settings.registryKey(RegistryKey.of(RegistryKeys.ITEM, Cheese.newId(path))));
         this.path = path;
         this.lootModifiers.addAll(List.of(lootModifiers));
     }
 
     @Override
     public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        var key = stack.getItem().getTranslationKey(stack) + ".tooltip_";
+        var key = stack.getItem().getTranslationKey() + ".tooltip_";
         var index = 0;
 
         while (I18n.hasTranslation(key + index)) {

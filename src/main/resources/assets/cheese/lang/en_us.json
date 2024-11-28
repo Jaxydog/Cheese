@@ -1,6 +1,7 @@
 {
     "block.cheese.cheese_block.tooltip_0": "What's wrong with Wensleydale...?",
     "block.cheese.cheese_block": "Cheese Block",
+    "block.cheese.tomato": "Tomato",
     "item.cheese.beef_gravy.tooltip_0": "I'm lomve cow juice..",
     "item.cheese.beef_gravy": "Beef Gravy",
     "item.cheese.cheese_and_crackers.tooltip_0": "It's like no cheese I've ever tasted...",
@@ -42,7 +43,6 @@
     "item.cheese.poutine.tooltip_0": "Canadians rejoice!",
     "item.cheese.poutine": "Poutine",
     "item.cheese.tomato_sauce": "Tomato Sauce",
-    "item.cheese.tomato": "Tomato",
     "itemGroup.cheese.default": "Cheese",
     "tag.block.cheese.cheese": "Cheese",
     "tag.item.cheese.cheese": "Cheese"
