@@ -106,6 +106,11 @@ public final class CustomItems extends AutoLoader {
             .rarity(Rarity.UNCOMMON)
     );
 
+    public static final CustomItem HONEYED_DINO_NUGGET = new CustomItem("honeyed_dino_nugget",
+        new Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.75f).build())
+            .rarity(Rarity.COMMON)
+    );
+
     public static final CustomItem MACARONI = new CustomItem("macaroni",
         new Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.5f).snack().build())
             .rarity(Rarity.COMMON)

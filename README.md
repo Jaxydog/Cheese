@@ -11,19 +11,20 @@ If you like cheese, cheese-adjacent foods, or Wallace and Gromit references, thi
 - Macaroni and Cheese
 - Crackers
 - Cheese and Crackers
-- Dino nugget
-- Cheesy dino nugget
+- Dino Nugget
+- Cheesy Dino Nugget
 - Cheesy Baked Potato
 - Cheese Steak
 - Grilled Cheese
 - Tomatoes
-- Tomato sauce
+- Tomato Sauce
 - Cheese Pizza
 - Beef Gravy
 - Cheese Curds
 - Fries
 - Cheese Fries
 - Poutine
+- Honeyed Dino Nugget
 
 ### Planned foods
 
