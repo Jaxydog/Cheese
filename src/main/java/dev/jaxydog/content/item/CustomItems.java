@@ -23,6 +23,7 @@ import net.minecraft.component.type.FoodComponent;
 import net.minecraft.component.type.FoodComponent.Builder;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.Item.Settings;
+import net.minecraft.item.Items;
 import net.minecraft.item.consume.UseAction;
 import net.minecraft.loot.LootTables;
 import net.minecraft.loot.provider.number.BinomialLootNumberProvider;
@@ -32,140 +33,181 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 
 @SuppressWarnings("unused")
-public final class CustomItems extends AutoLoader {
+public final class CustomItems
+    extends AutoLoader
+{
 
-    public static final BottleItem BEEF_GRAVY = new BottleItem("beef_gravy",
-        new Settings().food(new Builder().nutrition(1).saturationModifier(0.7f).build(),
-            ConsumableComponent.builder()
-                .useAction(UseAction.DRINK)
-                .sound(SoundEvents.ENTITY_GENERIC_DRINK)
-                .consumeParticles(false)
-                .build()
-        ).rarity(Rarity.COMMON)
+    public static final BottleItem BEEF_GRAVY = new BottleItem(
+        "beef_gravy", new Settings().food(
+        new Builder().nutrition(1).saturationModifier(0.7f).build(),
+        ConsumableComponent
+            .builder()
+            .useAction(UseAction.DRINK)
+            .sound(SoundEvents.ENTITY_GENERIC_DRINK)
+            .consumeParticles(false)
+            .build()
+    ).rarity(Rarity.COMMON).recipeRemainder(Items.GLASS_BOTTLE)
     );
 
-    public static final CustomItem CHEESE = new CustomItem("cheese",
-        new Settings().food(new Builder().nutrition(1).saturationModifier(1.125f).build(),
+    public static final CustomItem CHEESE = new CustomItem(
+        "cheese", new Settings().food(
+        new Builder().nutrition(1).saturationModifier(1.125f).build(),
+        ConsumableComponent.builder().consumeSeconds(0.8f).build()
+    ).rarity(Rarity.UNCOMMON)
+    );
+
+    public static final CustomItem CHEESE_AND_CRACKERS = new CustomItem(
+        "cheese_and_crackers",
+        new Settings().food(
+            new FoodComponent.Builder().nutrition(2).saturationModifier(1.25f).build(),
             ConsumableComponent.builder().consumeSeconds(0.8f).build()
         ).rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem CHEESE_AND_CRACKERS = new CustomItem("cheese_and_crackers",
-        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.25f).build(),
-            ConsumableComponent.builder().consumeSeconds(0.8f).build()
-        ).rarity(Rarity.UNCOMMON)
-    );
-
-    public static final CustomBlockItem CHEESE_BLOCK = new CustomBlockItem("cheese_block",
+    public static final CustomBlockItem CHEESE_BLOCK = new CustomBlockItem(
+        "cheese_block",
         CustomBlocks.CHEESE_BLOCK,
         new Settings().rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem CHEESE_CLOTH = new CustomItem("cheese_cloth",
+    public static final CustomItem CHEESE_CLOTH = new CustomItem(
+        "cheese_cloth",
         new Settings().rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem CHEESE_CURDS = new CustomItem("cheese_curds",
-        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.9f).build(),
-            ConsumableComponent.builder().consumeSeconds(0.8f).build()
-        ).rarity(Rarity.UNCOMMON)
+    public static final CustomItem CHEESE_CURDS = new CustomItem(
+        "cheese_curds", new Settings().food(
+        new FoodComponent.Builder().nutrition(2).saturationModifier(0.9f).build(),
+        ConsumableComponent.builder().consumeSeconds(0.8f).build()
+    ).rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem CHEESE_FRIES = new CustomItem("cheese_fries",
-        new Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.85f).build())
+    public static final CustomItem CHEESE_FRIES = new CustomItem(
+        "cheese_fries",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.85f).build())
             .rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem CHEESE_PIZZA = new CustomItem("cheese_pizza",
-        new Settings().food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.825f).build())
+    public static final CustomItem CHEESE_PIZZA = new CustomItem(
+        "cheese_pizza", new Settings()
+        .food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.825f).build())
+        .rarity(Rarity.UNCOMMON)
+        .recipeRemainder(Items.GLASS_BOTTLE)
+    );
+
+    public static final CustomItem CHEESE_STEAK = new CustomItem(
+        "cheese_steak",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(15).saturationModifier(0.75f).build())
             .rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem CHEESE_STEAK = new CustomItem("cheese_steak",
-        new Settings().food(new FoodComponent.Builder().nutrition(15).saturationModifier(0.75f).build())
+    public static final CustomItem CHEESY_BAKED_POTATO = new CustomItem(
+        "cheesy_baked_potato",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.875f).build())
             .rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem CHEESY_BAKED_POTATO = new CustomItem("cheesy_baked_potato",
-        new Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(0.875f).build())
+    public static final CustomItem CHEESY_DINO_NUGGET = new CustomItem(
+        "cheesy_dino_nugget",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.75f).build())
             .rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem CHEESY_DINO_NUGGET = new CustomItem("cheesy_dino_nugget",
-        new Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.75f).build())
-            .rarity(Rarity.UNCOMMON)
-    );
-
-    public static final CustomItem CRACKERS = new CustomItem("crackers",
-        new Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build())
+    public static final CustomItem CRACKERS = new CustomItem(
+        "crackers",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.5f).build())
             .rarity(Rarity.COMMON)
     );
 
-    public static final CustomItem DINO_NUGGET = new CustomItem("dino_nugget",
-        new Settings().food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.65f).build())
+    public static final CustomItem DINO_NUGGET = new CustomItem(
+        "dino_nugget",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(3).saturationModifier(0.65f).build())
             .rarity(Rarity.COMMON)
     );
 
     public static final CustomItem DOUGH = new CustomItem("dough", new Settings().rarity(Rarity.COMMON));
 
-    public static final CustomItem FRIES = new CustomItem("fries",
-        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(0.65f).build(),
-            ConsumableComponent.builder().consumeSeconds(0.8f).build()
-        ).rarity(Rarity.COMMON)
+    public static final CustomItem FRIES = new CustomItem(
+        "fries", new Settings().food(
+        new FoodComponent.Builder().nutrition(2).saturationModifier(0.65f).build(),
+        ConsumableComponent.builder().consumeSeconds(0.8f).build()
+    ).rarity(Rarity.COMMON)
     );
 
-    public static final CustomItem GRILLED_CHEESE = new CustomItem("grilled_cheese",
-        new Settings().food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.625f).build())
+    public static final CustomItem GRILLED_CHEESE = new CustomItem(
+        "grilled_cheese",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.625f).build())
             .rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomItem HONEYED_DINO_NUGGET = new CustomItem("honeyed_dino_nugget",
-        new Settings().food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.75f).build())
+    public static final CustomItem HONEYED_DINO_NUGGET = new CustomItem(
+        "honeyed_dino_nugget",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(4).saturationModifier(0.75f).build())
             .rarity(Rarity.COMMON)
     );
 
-    public static final CustomItem MACARONI = new CustomItem("macaroni",
-        new Settings().food(new FoodComponent.Builder().nutrition(1).saturationModifier(0.5f).build(),
-            ConsumableComponent.builder().consumeSeconds(0.8f).build()
-        ).rarity(Rarity.COMMON)
+    public static final CustomItem MACARONI = new CustomItem(
+        "macaroni", new Settings().food(
+        new FoodComponent.Builder().nutrition(1).saturationModifier(0.5f).build(),
+        ConsumableComponent.builder().consumeSeconds(0.8f).build()
+    ).rarity(Rarity.COMMON)
     );
 
-    public static final BowlItem MACARONI_AND_CHEESE = new BowlItem("macaroni_and_cheese",
-        new Settings().food(new FoodComponent.Builder().nutrition(6).saturationModifier(1.25f).build())
+    public static final BowlItem MACARONI_AND_CHEESE = new BowlItem(
+        "macaroni_and_cheese",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(6).saturationModifier(1.25f).build())
             .rarity(Rarity.UNCOMMON)
     );
 
-    public static final BowlItem POUTINE = new BowlItem("poutine",
-        new Settings().food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.95f).build())
+    public static final BowlItem POUTINE = new BowlItem(
+        "poutine",
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(8).saturationModifier(0.95f).build())
             .rarity(Rarity.UNCOMMON)
     );
 
-    public static final CustomBlockItem TOMATO = new CustomBlockItem("tomato",
+    public static final CustomBlockItem TOMATO = new CustomBlockItem(
+        "tomato",
         CustomBlocks.TOMATOES,
-        new Settings().food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.25f).build())
+        new Settings()
+            .food(new FoodComponent.Builder().nutrition(2).saturationModifier(1.25f).build())
             .rarity(Rarity.COMMON),
-        new LootModifier(EntityType.ZOMBIE.getLootTableKey().orElseThrow(),
+        new LootModifier(
+            EntityType.ZOMBIE.getLootTableKey().orElseThrow(),
             () -> CustomItems.TOMATO,
             BinomialLootNumberProvider.create(1, 0.01f)
         ),
-        new LootModifier(LootTables.VILLAGE_PLAINS_CHEST,
+        new LootModifier(
+            LootTables.VILLAGE_PLAINS_CHEST,
             () -> CustomItems.TOMATO,
             UniformLootNumberProvider.create(0, 16.0f)
         ),
-        new LootModifier(LootTables.VILLAGE_SAVANNA_HOUSE_CHEST,
+        new LootModifier(
+            LootTables.VILLAGE_SAVANNA_HOUSE_CHEST,
             () -> CustomItems.TOMATO,
             UniformLootNumberProvider.create(0, 16.0f)
         )
     );
 
-    public static final BottleItem TOMATO_SAUCE = new BottleItem("tomato_sauce",
-        new Settings().food(new Builder().nutrition(4).saturationModifier(1.125f).build(),
-            ConsumableComponent.builder()
-                .useAction(UseAction.DRINK)
-                .sound(SoundEvents.ENTITY_GENERIC_DRINK)
-                .consumeParticles(false)
-                .build()
-        ).rarity(Rarity.COMMON)
+    public static final BottleItem TOMATO_SAUCE = new BottleItem(
+        "tomato_sauce", new Settings().food(
+        new Builder().nutrition(4).saturationModifier(1.125f).build(),
+        ConsumableComponent
+            .builder()
+            .useAction(UseAction.DRINK)
+            .sound(SoundEvents.ENTITY_GENERIC_DRINK)
+            .consumeParticles(false)
+            .build()
+    ).rarity(Rarity.COMMON).recipeRemainder(Items.GLASS_BOTTLE)
     );
 
     @Override
