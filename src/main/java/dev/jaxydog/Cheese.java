@@ -28,17 +28,18 @@ import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Cheese implements ModInitializer {
+public final class Cheese
+    implements ModInitializer
+{
 
     public static final String MOD_ID = "cheese";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static final CustomBlocks BLOCKS = new CustomBlocks();
     public static final CustomItems ITEMS = new CustomItems();
-    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder()
-        .icon(CustomItems.CHEESE::getDefaultStack)
-        .displayName(Text.translatable(newId("default").toTranslationKey("itemGroup")))
-        .build();
+    public static final ItemGroup ITEM_GROUP =
+        FabricItemGroup.builder().icon(CustomItems.CHEESE::getDefaultStack).displayName(Text.translatable(newId(
+            "default").toTranslationKey("itemGroup"))).build();
 
     public static Identifier newId(String path) {
         return Identifier.of(MOD_ID, path);

@@ -33,7 +33,10 @@ import net.minecraft.util.Identifier;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CustomItem extends Item implements CommonLoaded {
+public class CustomItem
+    extends Item
+    implements CommonLoaded
+{
 
     private final String path;
     private final List<LootModifier> lootModifiers = new LinkedList<>();
@@ -66,8 +69,8 @@ public class CustomItem extends Item implements CommonLoaded {
     @Override
     public void loadCommon() {
         Registry.register(Registries.ITEM, this.getLoaderId(), this);
-        ItemGroupEvents.modifyEntriesEvent(Registries.ITEM_GROUP.getKey(Cheese.ITEM_GROUP).get())
-            .register(e -> e.add(this));
+        ItemGroupEvents.modifyEntriesEvent(Registries.ITEM_GROUP.getKey(Cheese.ITEM_GROUP).get()).register(e -> e.add(
+            this));
 
         this.lootModifiers.forEach(LootModifier::loadCommon);
     }

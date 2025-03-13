@@ -21,7 +21,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
 
-public class BottleItem extends CustomItem {
+public class BottleItem
+    extends CustomItem
+{
 
     public BottleItem(String path, Settings settings, LootModifier... lootModifiers) {
         super(path, settings, lootModifiers);

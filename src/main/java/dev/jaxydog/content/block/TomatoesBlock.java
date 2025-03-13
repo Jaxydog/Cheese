@@ -40,15 +40,29 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-public class TomatoesBlock extends CropBlock implements ClientLoaded, CommonLoaded {
+public class TomatoesBlock
+    extends CropBlock
+    implements ClientLoaded, CommonLoaded
+{
 
     public static final int TOMATOES_MAX_AGE = 3;
     public static final IntProperty AGE = Properties.AGE_3;
     private static final VoxelShape[] AGE_TO_SHAPE = new VoxelShape[] {
-        Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0),
-        Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 6.0, 16.0),
-        Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 9.0, 16.0),
-        Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 11.0, 16.0),
+        Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 2.0, 16.0), Block.createCuboidShape(
+        0.0,
+        0.0,
+        0.0,
+        16.0,
+        6.0,
+        16.0
+    ), Block.createCuboidShape(0.0, 0.0, 0.0, 16.0, 9.0, 16.0), Block.createCuboidShape(
+        0.0,
+        0.0,
+        0.0,
+        16.0,
+        11.0,
+        16.0
+    ),
     };
 
     public TomatoesBlock(Settings settings) {

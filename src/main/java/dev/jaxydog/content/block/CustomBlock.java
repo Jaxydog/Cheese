@@ -23,7 +23,10 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 
-public class CustomBlock extends Block implements CommonLoaded {
+public class CustomBlock
+    extends Block
+    implements CommonLoaded
+{
 
     private final String path;
 

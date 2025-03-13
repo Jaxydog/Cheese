@@ -21,7 +21,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.world.World;
 
-public class BowlItem extends CustomItem {
+public class BowlItem
+    extends CustomItem
+{
 
     public BowlItem(String path, Settings settings, LootModifier... lootModifiers) {
         super(path, settings, lootModifiers);

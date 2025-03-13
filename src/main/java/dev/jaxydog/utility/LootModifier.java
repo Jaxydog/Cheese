@@ -29,7 +29,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class LootModifier implements CommonLoaded {
+public class LootModifier
+    implements CommonLoaded
+{
 
     private final RegistryKey<?> tableId;
     private final Supplier<Item> item;
