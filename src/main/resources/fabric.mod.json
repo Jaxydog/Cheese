@@ -17,10 +17,10 @@
         "client": [ "dev.jaxydog.CheeseClient" ]
     },
     "depends": {
-        "fabricloader": ">=0.16.10",
-        "minecraft": "~1.21.4",
+        "fabricloader": ">=0.16.13",
+        "minecraft": "~1.21.5",
         "java": ">=21",
         "fabric-api": "*",
-        "lodestone": ">=1.7.0"
+        "lodestone": ">=1.7.1"
     }
 }

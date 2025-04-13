@@ -17,30 +17,30 @@ package dev.jaxydog.content.item;
 import dev.jaxydog.Cheese;
 import dev.jaxydog.lodestone.api.CommonLoaded;
 import dev.jaxydog.utility.LootModifier;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.Block;
 import net.minecraft.client.resource.language.I18n;
+import net.minecraft.component.ComponentMap;
+import net.minecraft.component.DataComponentTypes;
+import net.minecraft.component.type.LoreComponent;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
-import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class CustomBlockItem
-    extends BlockItem
-    implements CommonLoaded
-{
+public class CustomBlockItem extends BlockItem implements CommonLoaded {
 
     private final String path;
     private final List<LootModifier> lootModifiers = new LinkedList<>();
+    private final List<Text> tooltipText = new ObjectArrayList<>();
 
     public CustomBlockItem(String path, Block block, Settings settings, LootModifier... lootModifiers) {
         super(
@@ -50,19 +50,26 @@ public class CustomBlockItem
 
         this.path = path;
         this.lootModifiers.addAll(List.of(lootModifiers));
+
+        final String key = "%s.tooltip_".formatted(this.getTranslationKey());
+        int index = 0;
+
+        while (I18n.hasTranslation(key + index)) {
+            this.tooltipText.add(Text.translatable(key + index).setStyle(CustomItem.STYLE));
+
+            index += 1;
+        }
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
-        var key = stack.getItem().getTranslationKey() + ".tooltip_";
-        var index = 0;
+    public ItemStack getDefaultStack() {
+        final ItemStack stack = super.getDefaultStack();
 
-        while (I18n.hasTranslation(key + index)) {
-            tooltip.add(Text.translatable((key + index).formatted(Formatting.GRAY)));
-            index += 1;
-        }
+        stack.applyComponentsFrom(ComponentMap.builder()
+            .add(DataComponentTypes.LORE, new LoreComponent(this.tooltipText))
+            .build());
 
-        super.appendTooltip(stack, context, tooltip, type);
+        return stack;
     }
 
     @Override
@@ -74,8 +81,8 @@ public class CustomBlockItem
     @Override
     public void loadCommon() {
         Registry.register(Registries.ITEM, this.getLoaderId(), this);
-        ItemGroupEvents.modifyEntriesEvent(Registries.ITEM_GROUP.getKey(Cheese.ITEM_GROUP).get()).register(e -> e.add(
-            this));
+        ItemGroupEvents.modifyEntriesEvent(Registries.ITEM_GROUP.getKey(Cheese.ITEM_GROUP).get())
+            .register(e -> e.add(this));
 
         this.lootModifiers.forEach(LootModifier::loadCommon);
     }
