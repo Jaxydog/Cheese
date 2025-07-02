@@ -5,11 +5,16 @@
  *
  * This file is part of Cheese.
  *
- * Cheese is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ * Cheese is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public
+ *  License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
+ * later version.
  *
- * Cheese is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ * Cheese is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for
+ * more details.
  *
- * You should have received a copy of the GNU Affero General Public License along with Cheese. If not, see <https://www.gnu.org/licenses/>.
+ * You should have received a copy of the GNU Affero General Public License along with Cheese. If not, see
+ * <https://www.gnu.org/licenses/>.
  */
 
 package dev.jaxydog.content.item;
@@ -18,7 +23,9 @@ import dev.jaxydog.Cheese;
 import dev.jaxydog.lodestone.api.CommonLoaded;
 import dev.jaxydog.utility.LootModifier;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
+import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.component.ComponentMap;
 import net.minecraft.component.DataComponentTypes;
@@ -37,7 +44,10 @@ import net.minecraft.util.Identifier;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CustomItem extends Item implements CommonLoaded {
+public class CustomItem
+    extends Item
+    implements CommonLoaded
+{
 
     public static final Style STYLE = Style.EMPTY.withColor(Formatting.GRAY);
 
@@ -51,13 +61,15 @@ public class CustomItem extends Item implements CommonLoaded {
         this.path = path;
         this.lootModifiers.addAll(List.of(lootModifiers));
 
-        final String key = "%s.tooltip_".formatted(this.getTranslationKey());
-        int index = 0;
+        if (FabricLoader.getInstance().getEnvironmentType().equals(EnvType.CLIENT)) {
+            final String key = "%s.tooltip_".formatted(this.getTranslationKey());
+            int index = 0;
 
-        while (I18n.hasTranslation(key + index)) {
-            this.tooltipText.add(Text.translatable(key + index).setStyle(CustomItem.STYLE));
+            while (I18n.hasTranslation(key + index)) {
+                this.tooltipText.add(Text.translatable(key + index).setStyle(CustomItem.STYLE));
 
-            index += 1;
+                index += 1;
+            }
         }
     }
 
