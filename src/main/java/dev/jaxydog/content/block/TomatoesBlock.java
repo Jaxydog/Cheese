@@ -5,11 +5,16 @@
  *
  * This file is part of Cheese.
  *
- * Cheese is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ * Cheese is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public
+ *  License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
+ * later version.
  *
- * Cheese is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ * Cheese is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for
+ * more details.
  *
- * You should have received a copy of the GNU Affero General Public License along with Cheese. If not, see <https://www.gnu.org/licenses/>.
+ * You should have received a copy of the GNU Affero General Public License along with Cheese. If not, see
+ * <https://www.gnu.org/licenses/>.
  */
 
 package dev.jaxydog.content.block;
@@ -18,12 +23,12 @@ import dev.jaxydog.Cheese;
 import dev.jaxydog.content.item.CustomItems;
 import dev.jaxydog.lodestone.api.ClientLoaded;
 import dev.jaxydog.lodestone.api.CommonLoaded;
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.ShapeContext;
-import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.BlockRenderLayer;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -118,7 +123,7 @@ public class TomatoesBlock
 
     @Override
     public void loadClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(this, RenderLayer.getCutout());
+        BlockRenderLayerMap.putBlock(this, BlockRenderLayer.CUTOUT);
     }
 
     // spiders 🕷️ 🕸️
