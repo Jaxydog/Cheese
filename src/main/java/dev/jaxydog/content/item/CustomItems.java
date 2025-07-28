@@ -5,11 +5,16 @@
  *
  * This file is part of Cheese.
  *
- * Cheese is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ * Cheese is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public
+ *  License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any
+ * later version.
  *
- * Cheese is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ * Cheese is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied
+ * warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for
+ * more details.
  *
- * You should have received a copy of the GNU Affero General Public License along with Cheese. If not, see <https://www.gnu.org/licenses/>.
+ * You should have received a copy of the GNU Affero General Public License along with Cheese. If not, see
+ * <https://www.gnu.org/licenses/>.
  */
 
 package dev.jaxydog.content.item;
@@ -18,6 +23,7 @@ import dev.jaxydog.Cheese;
 import dev.jaxydog.content.block.CustomBlocks;
 import dev.jaxydog.lodestone.api.AutoLoader;
 import dev.jaxydog.utility.LootModifier;
+import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.component.type.FoodComponent.Builder;
@@ -196,7 +202,17 @@ public final class CustomItems
             () -> CustomItems.TOMATO,
             UniformLootNumberProvider.create(0, 16.0f)
         )
-    );
+    )
+    {
+
+        @Override
+        public void loadCommon() {
+            super.loadCommon();
+
+            CompostingChanceRegistry.INSTANCE.add(this, 0.65F);
+        }
+
+    };
 
     public static final BottleItem TOMATO_SAUCE = new BottleItem(
         "tomato_sauce", new Settings().food(
