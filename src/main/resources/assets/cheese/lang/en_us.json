@@ -45,5 +45,8 @@
     "item.cheese.tomato_sauce": "Tomato Sauce",
     "itemGroup.cheese.default": "Cheese",
     "tag.block.cheese.cheese": "Cheese",
+    "tag.item.c.crops.tomato": "Tomato Crops",
+    "tag.item.c.foods.tomato": "Tomatoes",
+    "tag.item.c.foods.dough": "Doughs",
     "tag.item.cheese.cheese": "Cheese"
 }

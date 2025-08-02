@@ -1,10 +1,6 @@
 {
     "type": "minecraft:crafting_shapeless",
-    "ingredients": [
-        "minecraft:glass_bottle",
-        "cheese:tomato",
-        "cheese:tomato"
-    ],
+    "ingredients": [ "minecraft:glass_bottle", "#c:foods/tomato", "#c:foods/tomato" ],
     "result": {
         "id": "cheese:tomato_sauce",
         "count": 1
